@@ -474,7 +474,7 @@ export default function App() {
                 <option value="">Todos os veículos</option>
                 {vehicles.map((v) => (
                   <option key={v.id} value={v.id}>
-                    {v.placa} - {v.marca} {v.modelo}
+                    {v.placa} · {v.motorista || ""} — {v.marca} {v.modelo}
                   </option>
                 ))}
               </select>
@@ -530,7 +530,7 @@ export default function App() {
                     ? formatCurrency(custosPorVeiculo[0].total)
                     : "—",
                   sub: custosPorVeiculo[0]
-                    ? `${custosPorVeiculo[0].placa}`
+                    ? `${custosPorVeiculo[0].placa} · ${custosPorVeiculo[0].motorista || ""}`
                     : "",
                   color: "var(--danger)",
                 },
@@ -617,16 +617,22 @@ export default function App() {
               {/* Ranking */}
               <div style={cardStyle}>
                 <h3 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16 }}>
-                  Ranking de Custos por Veículo
+                  Ranking de Custos por Veículo / Motorista
                 </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  {custosPorVeiculo.slice(0, 6).map((v, i) => {
+                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                  {custosPorVeiculo.slice(0, 8).map((v, i) => {
                     const pct = custosPorVeiculo[0]?.total
                       ? (v.total / custosPorVeiculo[0].total) * 100
                       : 0;
                     const tipo = VEHICLE_TYPES.find((t) => t.id === v.tipo);
+                    // top categories for this vehicle
+                    const vManuts = filteredManutencoes.filter((m) => m.veiculoId === v.id);
+                    const catTotals = CATEGORIES.map((c) => ({
+                      ...c,
+                      val: vManuts.filter((m) => m.categoria === c.id).reduce((s, m) => s + m.valor, 0),
+                    })).filter((c) => c.val > 0).sort((a, b) => b.val - a.val);
                     return (
-                      <div key={v.id} className="slide-up" style={{ animationDelay: `${i * 0.06}s` }}>
+                      <div key={v.id} className="slide-up" style={{ animationDelay: `${i * 0.06}s`, padding: "10px 0", borderBottom: i < custosPorVeiculo.slice(0, 8).length - 1 ? "1px solid var(--bg4)" : "none" }}>
                         <div
                           style={{
                             display: "flex",
@@ -636,13 +642,25 @@ export default function App() {
                           }}
                         >
                           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                            <span style={{ fontSize: 14, fontWeight: 800, color: i === 0 ? "var(--danger)" : i === 1 ? "var(--warn)" : "var(--text-muted)", minWidth: 20 }}>
+                              #{i + 1}
+                            </span>
                             <span style={{ fontSize: 16 }}>{tipo?.icon}</span>
-                            <span style={{ fontWeight: 600, fontSize: 13 }}>
-                              {v.placa}
-                            </span>
-                            <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
-                              {v.modelo}
-                            </span>
+                            <div>
+                              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                                <span style={{ fontWeight: 600, fontSize: 13 }}>
+                                  {v.placa}
+                                </span>
+                                {v.motorista && (
+                                  <span style={{ fontSize: 12, color: "var(--accent2)", fontWeight: 600 }}>
+                                    👤 {v.motorista}
+                                  </span>
+                                )}
+                              </div>
+                              <span style={{ fontSize: 11, color: "var(--text-muted)" }}>
+                                {[v.marca, v.modelo].filter(Boolean).join(" ")}
+                              </span>
+                            </div>
                           </div>
                           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                             <MiniBar
@@ -652,12 +670,25 @@ export default function App() {
                             />
                             <span
                               className="mono"
-                              style={{ fontWeight: 700, fontSize: 13, minWidth: 100, textAlign: "right" }}
+                              style={{ fontWeight: 700, fontSize: 14, minWidth: 110, textAlign: "right" }}
                             >
                               {formatCurrency(v.total)}
                             </span>
                           </div>
                         </div>
+                        {/* Category breakdown */}
+                        {catTotals.length > 0 && (
+                          <div style={{ display: "flex", gap: 6, marginLeft: 44, marginTop: 4, flexWrap: "wrap" }}>
+                            {catTotals.slice(0, 3).map((c) => (
+                              <span key={c.id} style={{ fontSize: 10, background: c.color + "22", color: c.color, padding: "2px 8px", borderRadius: 12, fontWeight: 600 }}>
+                                {c.label}: {formatCurrency(c.val)}
+                              </span>
+                            ))}
+                            {catTotals.length > 3 && (
+                              <span style={{ fontSize: 10, color: "var(--text-muted)" }}>+{catTotals.length - 3} cat.</span>
+                            )}
+                          </div>
+                        )}
                         <div
                           style={{
                             height: 4,
@@ -695,7 +726,7 @@ export default function App() {
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                   <thead>
                     <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                      {["Data", "Veículo", "Categoria", "Descrição", "KM", "Valor"].map(
+                      {["Data", "Veículo", "Motorista", "Categoria", "Descrição", "KM", "Valor"].map(
                         (h) => (
                           <th
                             key={h}
@@ -741,6 +772,9 @@ export default function App() {
                             </td>
                             <td style={{ padding: "10px 12px", fontWeight: 600 }}>
                               {v?.placa || "—"}
+                            </td>
+                            <td style={{ padding: "10px 12px", color: "var(--accent2)", fontSize: 12 }}>
+                              {v?.motorista || "—"}
                             </td>
                             <td style={{ padding: "10px 12px" }}>
                               <span
@@ -791,7 +825,7 @@ export default function App() {
                   <option value="">Selecione...</option>
                   {vehicles.map((v) => (
                     <option key={v.id} value={v.id}>
-                      {VEHICLE_TYPES.find((t) => t.id === v.tipo)?.icon} {v.placa} — {v.marca} {v.modelo}
+                      {VEHICLE_TYPES.find((t) => t.id === v.tipo)?.icon} {v.placa} · {v.motorista || ""} — {v.marca} {v.modelo}
                     </option>
                   ))}
                 </select>
@@ -879,7 +913,7 @@ export default function App() {
                 >
                   <option value="">Todos os veículos</option>
                   {vehicles.map((v) => (
-                    <option key={v.id} value={v.id}>{v.placa} - {v.marca} {v.modelo}</option>
+                    <option key={v.id} value={v.id}>{v.placa} · {v.motorista || ""} — {v.marca} {v.modelo}</option>
                   ))}
                 </select>
                 <select
@@ -898,7 +932,7 @@ export default function App() {
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                    {["Data", "Veículo", "Categoria", "Descrição", "KM", "Valor", ""].map((h) => (
+                    {["Data", "Veículo", "Motorista", "Categoria", "Descrição", "KM", "Valor", ""].map((h) => (
                       <th
                         key={h}
                         style={{
@@ -931,6 +965,7 @@ export default function App() {
                             {new Date(m.data + "T12:00:00").toLocaleDateString("pt-BR")}
                           </td>
                           <td style={{ padding: "10px 12px", fontWeight: 600 }}>{v?.placa || "—"}</td>
+                          <td style={{ padding: "10px 12px", color: "var(--accent2)", fontSize: 12 }}>{v?.motorista || "—"}</td>
                           <td style={{ padding: "10px 12px" }}>
                             <span style={{ background: cat?.color + "22", color: cat?.color, padding: "3px 10px", borderRadius: 20, fontSize: 11, fontWeight: 600 }}>
                               {cat?.label}
