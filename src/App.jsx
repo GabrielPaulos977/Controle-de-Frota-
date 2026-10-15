@@ -37,27 +37,25 @@ const VEHICLE_TYPES = [
 ];
 
 const INITIAL_VEHICLES = {
-  v1:  { placa: "IUI2G62", motorista: "POLIDRIL", tipo: "caminhao", marca: "IVECO", modelo: "EUROCARGO 260E25", ano: 2012 },
-  v2:  { placa: "IYX1898", motorista: "SANDRO", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 170E22", ano: 2014 },
-  v3:  { placa: "IYY6903", motorista: "CLEVERSSON", tipo: "caminhao", marca: "FORD", modelo: "CARGO 1723 B", ano: 2019 },
-  v4:  { placa: "IWJ0804", motorista: "RESERVA 7742", tipo: "caminhao", marca: "FORD", modelo: "CARGO 1723 B", ano: 2019 },
-  v5:  { placa: "IYX0594", motorista: "LV 6254", tipo: "caminhao", marca: "FORD", modelo: "CARGO 816 S", ano: 2019 },
-  v6:  { placa: "JAD2E49", motorista: "LUCAS", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 170E28", ano: 2020 },
-  v7:  { placa: "JAG0F42", motorista: "ELOI", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 170E28", ano: 2020 },
-  v8:  { placa: "JBO2G50", motorista: "VANDERLEI", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 240E28", ano: 2022 },
-  v9:  { placa: "IUL1160", motorista: "GILBERTO", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "24.280 CRM 6X2", ano: 2012 },
-  v10: { placa: "JBO9B97", motorista: "WAGNER", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 240E28", ano: 2022 },
-  v11: { placa: "TQS7A22", motorista: "ELEMAR", tipo: "caminhao", marca: "COSTELLATION", modelo: "", ano: 2025 },
-  v12: { placa: "IZA6I12", motorista: "RESERVA 5502", tipo: "caminhao", marca: "FORD", modelo: "CARGO 1723 B", ano: 2019 },
-  v13: { placa: "JBA2H75", motorista: "DARCI", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "17.260 CRM 4X2", ano: 2022 },
-  v14: { placa: "IYX0585", motorista: "ALEXANDRE", tipo: "caminhao", marca: "FORD", modelo: "CARGO 816 S", ano: 2019 },
-  v15: { placa: "JBG5J56", motorista: "JOSEMAR", tipo: "veiculo", marca: "FIAT", modelo: "STRADA ENDURANCE CS 1.4", ano: 2022 },
-  v16: { placa: "IWI8H60", motorista: "CALÇADAS", tipo: "veiculo", marca: "FIAT", modelo: "STRADA WORKING", ano: 2015 },
-  v17: { placa: "IZZ6A13", motorista: "JOSIAS", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 9-190", ano: 2020 },
-  v18: { placa: "IVM3D85", motorista: "LUIZ", tipo: "veiculo", marca: "FIAT", modelo: "STRADA WORKING", ano: 2019 },
-  v19: { placa: "JBG7D86", motorista: "JOÃO", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "17.260 CRM 4X2", ano: 2022 },
-  v20: { placa: "JDL2G75", motorista: "PAULO", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "18.260 CRM 4X2", ano: 2025 },
-  v21: { placa: "IZX8A52", motorista: "GABRIEL", tipo: "veiculo", marca: "VOLKSWAGEN", modelo: "GOL 1.6", ano: 2021 },
+  v1:  { placa: "JAD2E49", motorista: "LUCAS NEU", equipe: "SR05414", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 170E28", ano: 2020 },
+  v2:  { placa: "JDL2G75", motorista: "PAULO STEINBORN", equipe: "SRO5501", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "18.260 4X2", ano: 2025 },
+  v3:  { placa: "JBO2G50", motorista: "VANDERLEI PAQUEIRA", equipe: "SRO5081", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 240E28", ano: 2022 },
+  v4:  { placa: "JBO9B97", motorista: "MÁRCIO JURAWSKI", equipe: "SRO5838", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 240E28", ano: 2023 },
+  v5:  { placa: "IYX1898", motorista: "SANDRO KUZEY", equipe: "SRO5839", tipo: "caminhao", marca: "FORD", modelo: "CARGO 1723B", ano: 2019 },
+  v6:  { placa: "JBG7D86", motorista: "JOÃO DURÃO", equipe: "SRO5823", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "17.260 CRM 4X2 4P", ano: 2022 },
+  v7:  { placa: "IYY6903", motorista: "CLÉVERSON PAYVA", equipe: "SRO5658", tipo: "caminhao", marca: "FORD", modelo: "CARGO 1723B", ano: 2019 },
+  v8:  { placa: "JAX2H68", motorista: "ELEMAR RATKE", equipe: "SRO5363", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "17.260 CRM 4X2 4P", ano: 2022 },
+  v9:  { placa: "JBA2H75", motorista: "DARCI STEFAN", equipe: "SRO5483", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "17.260 CRM 4X2", ano: 2022 },
+  v10: { placa: "JAG0F42", motorista: "ELÓI PAVÃO", equipe: "SRO5761", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 170E28", ano: 2020 },
+  v11: { placa: "IYX0585", motorista: "DIECSON BATISTA", equipe: "LV 6252", tipo: "caminhao", marca: "FORD", modelo: "CARGO 816 S", ano: 2019 },
+  v12: { placa: "IZZ6113", motorista: "JOSIAS GODOY", equipe: "LV 6143", tipo: "caminhao", marca: "IVECO", modelo: "TECTOR 9-190", ano: 2020 },
+  v13: { placa: "IZA6112", motorista: "ROGÉRIO SCHUCK", equipe: "SRO 7951", tipo: "caminhao", marca: "FORD", modelo: "CARGO 1723B", ano: 2019 },
+  v14: { placa: "IUI2G62", motorista: "POLIDRIL 1 (SRO)", equipe: "SRO 7744", tipo: "caminhao", marca: "IVECO", modelo: "EUROCARGO 260E25", ano: 2012 },
+  v15: { placa: "IUL1160", motorista: "GILBERTO REICHEL", equipe: "SRO 7743", tipo: "caminhao", marca: "VOLKSWAGEN", modelo: "24.280 CRM 6X2", ano: 2013 },
+  v16: { placa: "IZX8A52", motorista: "GABRIEL PAULOS", equipe: "GERENTE", tipo: "veiculo", marca: "VOLKSWAGEN", modelo: "GOL 1.6L MB5", ano: 2021 },
+  v17: { placa: "IWI8H60", motorista: "CALÇADA", equipe: "ADM SANTA ROSA", tipo: "veiculo", marca: "FIAT", modelo: "STRADA WORKING", ano: 2015 },
+  v18: { placa: "IVM3D85", motorista: "LUÍZ", equipe: "SRO", tipo: "veiculo", marca: "FIAT", modelo: "STRADA WORKING 1.4", ano: 2014 },
+  v19: { placa: "JBG5J56", motorista: "JOSEMAR", equipe: "SRO", tipo: "veiculo", marca: "FIAT", modelo: "STRADA ENDURANCE CS 1.4", ano: 2022 },
 };
 
 const MONTHS = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
@@ -176,7 +174,7 @@ function QuickEntry({ vehicles }) {
               <span style={{ fontSize: 16 }}>{getIcon(v.tipo)}</span>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 13 }}>{v.placa}</div>
-                <div style={{ fontSize: 11, opacity: 0.8 }}>{v.motorista}</div>
+                <div style={{ fontSize: 11, opacity: 0.8 }}>{v.motorista}{v.equipe ? ` · ${v.equipe}` : ""}</div>
               </div>
             </div>
           </button>
@@ -407,7 +405,7 @@ function Dashboard({ vehicles, manutencoes, filterPeriod, filterCat, selectedVeh
                       <span style={{ fontWeight: 700, fontSize: 14 }}>{v.placa}</span>
                       <span style={{ fontSize: 13, color: "#60a5fa", fontWeight: 600 }}>👤 {v.motorista}</span>
                     </div>
-                    <span style={{ fontSize: 11, color: "var(--m)" }}>{[v.marca, v.modelo].filter(Boolean).join(" ")} · {v.ano} · {v.count} serv.</span>
+                    <span style={{ fontSize: 11, color: "var(--m)" }}>{[v.marca, v.modelo].filter(Boolean).join(" ")} · {v.ano}{v.equipe ? ` · ${v.equipe}` : ""} · {v.count} serv.</span>
                   </div>
                 </div>
                 <span style={{ fontWeight: 800, fontSize: 16, fontVariantNumeric: "tabular-nums" }}>{fmt(v.total)}</span>
@@ -506,21 +504,21 @@ function Historico({ vehicles, manutencoes, filterPeriod, filterCat, selectedVeh
 // COMPONENTE: VEÍCULOS
 // ============================================================
 function Veiculos({ vehicles, manutencoes }) {
-  const [form, setForm] = useState({ placa: "", tipo: "caminhao", marca: "", modelo: "", ano: new Date().getFullYear(), motorista: "" });
+  const [form, setForm] = useState({ placa: "", tipo: "caminhao", marca: "", modelo: "", ano: new Date().getFullYear(), motorista: "", equipe: "" });
   const [editing, setEditing] = useState(null);
   const [toast, setToast] = useState(null);
   const show = (m) => { setToast(m); setTimeout(() => setToast(null), 2500); };
 
   const handleAdd = async () => {
     if (!form.placa) return show("Preencha a placa");
-    await push(ref(db, "veiculos"), { placa: form.placa.toUpperCase(), tipo: form.tipo, marca: form.marca.toUpperCase(), modelo: form.modelo.toUpperCase(), ano: parseInt(form.ano), motorista: form.motorista.toUpperCase() });
-    setForm({ placa: "", tipo: "caminhao", marca: "", modelo: "", ano: new Date().getFullYear(), motorista: "" });
+    await push(ref(db, "veiculos"), { placa: form.placa.toUpperCase(), tipo: form.tipo, marca: form.marca.toUpperCase(), modelo: form.modelo.toUpperCase(), ano: parseInt(form.ano), motorista: form.motorista.toUpperCase(), equipe: form.equipe.toUpperCase() });
+    setForm({ placa: "", tipo: "caminhao", marca: "", modelo: "", ano: new Date().getFullYear(), motorista: "", equipe: "" });
     show("Veículo adicionado!");
   };
 
   const handleUpdate = async () => {
     if (!editing) return;
-    await update(ref(db, `veiculos/${editing.id}`), { placa: editing.placa.toUpperCase(), tipo: editing.tipo, marca: (editing.marca||"").toUpperCase(), modelo: (editing.modelo||"").toUpperCase(), ano: parseInt(editing.ano), motorista: (editing.motorista||"").toUpperCase() });
+    await update(ref(db, `veiculos/${editing.id}`), { placa: editing.placa.toUpperCase(), tipo: editing.tipo, marca: (editing.marca||"").toUpperCase(), modelo: (editing.modelo||"").toUpperCase(), ano: parseInt(editing.ano), motorista: (editing.motorista||"").toUpperCase(), equipe: (editing.equipe||"").toUpperCase() });
     setEditing(null); show("Atualizado!");
   };
 
@@ -547,9 +545,10 @@ function Veiculos({ vehicles, manutencoes }) {
           <input placeholder="Marca" value={form.marca} onChange={(e) => setForm({...form, marca: e.target.value})} style={inp} />
           <input placeholder="Modelo" value={form.modelo} onChange={(e) => setForm({...form, modelo: e.target.value})} style={inp} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "0.6fr 1.4fr auto", gap: 10 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "0.6fr 1fr 1fr auto", gap: 10 }}>
           <input type="number" placeholder="Ano" value={form.ano} onChange={(e) => setForm({...form, ano: e.target.value})} style={inp} />
           <input placeholder="Motorista" value={form.motorista} onChange={(e) => setForm({...form, motorista: e.target.value})} style={inp} />
+          <input placeholder="Equipe (ex: SRO5414)" value={form.equipe} onChange={(e) => setForm({...form, equipe: e.target.value})} style={inp} />
           <button onClick={handleAdd} style={btnP}>Adicionar</button>
         </div>
       </div>
@@ -568,6 +567,7 @@ function Veiculos({ vehicles, manutencoes }) {
               <input value={editing.modelo||""} onChange={(e) => setEditing({...editing, modelo: e.target.value})} style={inp} placeholder="Modelo" />
               <input type="number" value={editing.ano} onChange={(e) => setEditing({...editing, ano: e.target.value})} style={inp} placeholder="Ano" />
               <input value={editing.motorista||""} onChange={(e) => setEditing({...editing, motorista: e.target.value})} style={inp} placeholder="Motorista" />
+              <input value={editing.equipe||""} onChange={(e) => setEditing({...editing, equipe: e.target.value})} style={inp} placeholder="Equipe" />
             </div>
             <div style={{ display: "flex", gap: 10, marginTop: 16 }}>
               <button onClick={handleUpdate} style={{ ...btnP, flex: 1 }}>Salvar</button>
@@ -591,6 +591,7 @@ function Veiculos({ vehicles, manutencoes }) {
                     <p style={{ fontWeight: 700, fontSize: 15 }}>{v.placa}</p>
                     <p style={{ fontSize: 12, color: "var(--m)" }}>{[v.marca,v.modelo].filter(Boolean).join(" ")} · {v.ano}</p>
                     {v.motorista && <p style={{ fontSize: 12, color: "#60a5fa", marginTop: 2 }}>👤 {v.motorista}</p>}
+                    {v.equipe && <p style={{ fontSize: 11, color: "var(--m)", marginTop: 1 }}>Equipe: {v.equipe}</p>}
                   </div>
                 </div>
                 <div style={{ display: "flex", gap: 4 }}>
@@ -673,7 +674,7 @@ export default function App() {
         <div style={{ maxWidth: 1140, margin: "0 auto", padding: "16px 16px 0", display: "flex", gap: 8, flexWrap: "wrap" }}>
           <select value={selectedVehicle || ""} onChange={(e) => setSelectedVehicle(e.target.value || null)} style={sel}>
             <option value="">Todos os veículos</option>
-            {[...vehicles].sort((a,b)=>a.placa.localeCompare(b.placa)).map((v) => <option key={v.id} value={v.id}>{v.placa} · {v.motorista}</option>)}
+            {[...vehicles].sort((a,b)=>a.placa.localeCompare(b.placa)).map((v) => <option key={v.id} value={v.id}>{v.placa} · {v.motorista}{v.equipe ? ` (${v.equipe})` : ""}</option>)}
           </select>
           <select value={filterPeriod} onChange={(e) => setFilterPeriod(e.target.value)} style={sel}>
             <option value="todos">Todo período</option><option value="mes">Este mês</option><option value="trimestre">Último trimestre</option><option value="ano">Este ano</option>
